@@ -7,7 +7,7 @@ export const imagesHandler = (io: Server, socket: Socket) => {
   socket.on(ImgaeOpt.Send, async ({ roomName, image }, cb) => {
     if (!socket.rooms.has(roomName)) return cb("You are not member");
 
-    socket.broadcast.to(roomName).emit("image:sent", image);
+    socket.broadcast.to(roomName).emit("image:sent", { image });
     cb(null, "The image sent successfully");
   });
 };

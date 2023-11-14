@@ -43,6 +43,6 @@ export const messagesHandler = (io: Server, socket: Socket) => {
       .skip(pageNum * messagesPerPage)
       .limit(messagesPerPage);
 
-    cb(null, messages);
+    cb(null, { messages });
   });
 };

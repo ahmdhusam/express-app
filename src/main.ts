@@ -10,6 +10,7 @@ import { rateLimit } from "express-rate-limit";
 import { createServer } from "http";
 import { Server } from "socket.io";
 import { useWs } from "./ws/index.ws";
+import { NotFoundException } from "./utiles/exceptions/notFound.exception";
 
 declare global {
   namespace Express {
@@ -44,6 +45,11 @@ app.use(
 );
 
 app.use("/api", UsersRouter, AuthRouter, MessagesRouter);
+
+// GLobal Handler
+app.use((req, res, next) => {
+  throw new NotFoundException();
+});
 
 // Error handler
 app.use(

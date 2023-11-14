@@ -32,7 +32,7 @@ export const roomsHandler = (io: Server, socket: Socket) => {
     socket.join(roomName);
     socket.broadcast
       .to(roomName)
-      .emit("room:joined", socket.data.user.username);
+      .emit("room:joined", { username: socket.data.user.username });
     cb(null, "joined");
   });
 
