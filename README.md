@@ -17,7 +17,7 @@ $ docker-compose up
 
 ## Socket.io api
 
-- ws://host:port/chat
+- ws://host:port/
   - auth:
     - token
   - Headers:
