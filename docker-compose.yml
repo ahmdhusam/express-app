@@ -13,6 +13,8 @@ services:
       - db
     networks:
       - app
+    env_file:
+      - ./.example.env
 
   db:
     image: mongo

@@ -18,7 +18,7 @@ COPY package*.json .
 
 RUN yarn --prod
 
-COPY --from=Builder /app/dist .
+COPY --from=Builder /app/dist ./dist
 
 EXPOSE 3000
 
